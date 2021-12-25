@@ -1,18 +1,18 @@
 // import styles from '../styles/styles.module.css'
 import { ProductCard, ProductImage, ProductTitle ,ProductBottons} from '../components';
-
+import '../styles/custom-styles.css'
 
 
 const product  = {
     id:'1',
     title:'Coffee Card',
-    img : './coffee-mug.png'// 
+     img : './coffee-mug.png'// 
 
 }
 
 export const ShoppingPage = () => {
     return (
-        <div>
+        <div >
             <h1>Shopping Page</h1>
             <hr />
             <div style={{
@@ -21,15 +21,46 @@ export const ShoppingPage = () => {
                 flexWrap:'wrap'
             }}>
 
-            <ProductCard product = {product}>
-                < ProductCard.Image/>
-                < ProductCard.Title  title={'Hola mundo'}/>
-                < ProductCard.Buttons/> 
+            <ProductCard 
+            product = {product}
+            className = 'bg-dark text-white'
+            >
+                < ProductCard.Image className = 'custom-image'/>
+                < ProductCard.Title  className = ' text-bold'/>
+                < ProductCard.Buttons className = 'custon-buttons'/> 
             </ProductCard>
-            <ProductCard product = {product}>
-                < ProductImage/>
-                < ProductTitle />
-                < ProductBottons/> 
+            <ProductCard 
+            product = {product}
+            className = 'bg-dark text-white'
+            
+            >
+                < ProductImage className = 'custom-image'/>
+                < ProductTitle  className = ' text-bold'/>
+                < ProductBottons className = 'custon-buttons'/> 
+            </ProductCard>
+            <ProductCard 
+            product = {product}
+            style = {{
+                backgroundColor:'#70D1F8',
+                
+            }}
+            
+            
+            >
+                < ProductImage 
+                style={{
+                    boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'
+                }}
+                />
+                < ProductTitle  
+                style={{
+                    display:'flex',
+                    justifyContent:'end'
+                }}/>
+                < ProductBottons  
+                style={{
+                    fontWeight:'bold'
+                }}/> 
             </ProductCard>
             
 
