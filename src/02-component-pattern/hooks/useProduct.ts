@@ -11,16 +11,13 @@ interface usePropsArgs {
 export const useProduct = ( {onChange,product,value = 0} : usePropsArgs ) => {
     const [counter, setCounter] = useState(value)
 
-    const isControled = useRef(!!onChange)
+    
 
    
 
     const increaseBy = (value:number)  =>{
         
-        if (isControled){
-            
-            return onChange!({count:value,product})
-        }
+        
 
         const newValue = Math.max(counter + value , 0)
 
