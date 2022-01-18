@@ -12,6 +12,7 @@ import { PropsImages } from '../components/ProductImage';
 export interface Product {
     id:string;
     title:string;
+    
     img?:string;
 }
 
@@ -32,4 +33,21 @@ export interface ProductCardMainProps {
     Image:(Props: PropsImages) => JSX.Element,
     Buttons:(Props: PropsButton) => JSX.Element
 
+}
+
+export interface Basket {
+    id:string,
+    title:string,
+    quantity:number, 
+    
+}
+    
+export interface onChangeArgs {
+    product:Product, 
+    count:number
+}
+
+
+export interface ProductInCart extends Product  { //LAS INTERFACES SE PUEDEN EXTENDER
+    count:number
 }

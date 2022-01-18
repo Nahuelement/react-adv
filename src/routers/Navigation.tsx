@@ -1,19 +1,29 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { BrowserRouter, Navigate } from "react-router-dom"
 
 import { Routes, Route, NavLink } from "react-router-dom";
 import logo from '../logo.svg'
 import { routes } from './routes';
+import { Provider } from 'react-redux'
+import { createStore,compose } from 'redux'
+import BasketReducer from "../02-component-pattern/reducers/basketReducer";
 
 
 
+const composeEnhancers = (typeof window !== 'undefined' && (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)) || compose;
+
+
+const store = createStore(BasketReducer,composeEnhancers())
 
 
 
-
-
-export const Navigation = () => (
+export const Navigation = () =>{
+    useEffect(() => {
+        
+    }, [])
+ return (
     <Suspense fallback={null}>
+    <Provider store={store}>
         <BrowserRouter>
             <div className="main-layout">
                 <nav>
@@ -45,7 +55,7 @@ export const Navigation = () => (
 
             </div>
 
-
         </BrowserRouter>
+        </Provider>
     </Suspense>
-)
+)}

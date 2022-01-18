@@ -20,3 +20,11 @@
    color: seashell;
    border-color: seashell;
 }
+
+.shoppping-cart {
+    
+    top: 0px;
+    right: 10px;
+    position: fixed!important;
+
+}

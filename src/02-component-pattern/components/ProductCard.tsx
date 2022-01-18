@@ -8,7 +8,7 @@ import styles from '../styles/styles.module.css'
 
 
 import { createContext} from 'react';
-import { ProductContextProps, Product } from '../interfaces/interfaces';
+import { ProductContextProps, Product, onChangeArgs } from '../interfaces/interfaces';
 
 
 
@@ -22,15 +22,17 @@ export interface PropsCard {
     product:Product,
     children?:React.ReactElement | React.ReactElement[],
     className?:string,
-    style?:React.CSSProperties
+    style?:React.CSSProperties,
+    onChange?:(args:onChangeArgs)=>void,
+    value?:number
 }
     
 
 
 
-export const ProductCard = ({children,product,className,style} : PropsCard) => {
+export const ProductCard = ({children,product,className,style,onChange,value} : PropsCard) => {
 
-    const {counter ,increaseBy} = useProduct()
+    const {counter ,increaseBy} = useProduct({onChange,product,value})// PARA HACER TODOS LOS CAMBIOS EN EL CUSTOMHOOK
     
     return (
 

@@ -1,16 +1,20 @@
 import { useContext } from "react"
 import { ProductContext } from './ProductCard';
 import styles from '../styles/styles.module.css'
-
+// import { useDispatch, useSelector } from 'react-redux'
 
 export interface PropsButton {
     className?:string,
-    style?:React.CSSProperties
+    style?:React.CSSProperties,
+    product:any,
+    quantity?:number
 }
 
-export const ProductBottons = ({className,style}:PropsButton) =>{
+export const ProductBottons = ({className,style,product,quantity}:PropsButton) =>{
 
     const {counter, increaseBy} = useContext(ProductContext)
+    // const dispatch = useDispatch()
+    
 
    return(
        <div 
@@ -20,7 +24,11 @@ export const ProductBottons = ({className,style}:PropsButton) =>{
        >
        <button 
        className ={styles.buttonMinus}
-       onClick= {() => increaseBy(-1)}
+       
+       onClick= {() =>{
+        // dispatch({type:'put',payload:product})
+        increaseBy(-1)}
+       } 
        >
            -
        </button>
@@ -30,7 +38,9 @@ export const ProductBottons = ({className,style}:PropsButton) =>{
        </div>
        <button 
        className ={styles.buttonAdd}
-       onClick= {() => increaseBy(+1)}
+       onClick= {() => {
+        //    dispatch({type:'add',payload:product})
+           increaseBy(+1)}}
        >
            +
        </button>
