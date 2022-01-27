@@ -8,52 +8,52 @@ import { ProductImage } from '../ProductImage';
 import { ProductBottons } from '../ProductBottons';
 
 
-const Basket = () => {
-  const basket = useSelector((state:State) => state.basket)
-  const dispatch = useDispatch()
+// const Basket = () => {
+//   const basket = useSelector((state:State) => state.basket)
+//   const dispatch = useDispatch()
 
-return (
-<div className="shoppping-cart">
-        <h2>Basket</h2>
-    {basket?
-     (
-     <>
-      {
-      basket.map(product => 
-      (product.quantity >0)?(
-        <>
-        <ProductCard
-        key = {product.id}
-        product = {product}
-        style={{width:'100px'}}
-        className = 'bg-dark text-white'>
-            < ProductImage 
-            className = 'custom-image'
-            style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}
-            />
-            {/* < ProductTitle  className = ' text-bold'/> */}
-            < ProductBottons 
-            quantity = {product.quantity}
-            className = 'custon-buttons'
-            product = {product}/> 
-        </ProductCard>
-        </>
-      ):null
-     )
-      }
-    <button onClick={() => dispatch({ type: 'clearBasket' })}>
-            Clear
-          </button>
-        </>
+// return (
+// <div className="shoppping-cart">
+//         <h2>Basket</h2>
+//     {basket?
+//      (
+//      <>
+//       {
+//       basket.map(product => 
+//       (product.quantity >0)?(
+//         <>
+//         <ProductCard
+//         key = {product.id}
+//         product = {product}
+//         style={{width:'100px'}}
+//         className = 'bg-dark text-white'>
+//             < ProductImage 
+//             className = 'custom-image'
+//             style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}
+//             />
+//             {/* < ProductTitle  className = ' text-bold'/> */}
+//             < ProductBottons 
+//             quantity = {product.quantity}
+//             className = 'custon-buttons'
+//             product = {product}/> 
+//         </ProductCard>
+//         </>
+//       ):null
+//      )
+//       }
+//     <button onClick={() => dispatch({ type: 'clearBasket' })}>
+//             Clear
+//           </button>
+//         </>
       
-      ) : (
-        'Empty'
-      )}
+//       ) : (
+//         'Empty'
+//       )}
 
-    </div>
+//     </div>
     
       
-  )
-}
+//   )
+// }
 
-export default Basket
+// export default Basket

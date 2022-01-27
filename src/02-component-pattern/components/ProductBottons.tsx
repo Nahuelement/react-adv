@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useCallback, useContext, useRef, useState } from 'react';
 import { ProductContext } from './ProductCard';
 import styles from '../styles/styles.module.css'
 // import { useDispatch, useSelector } from 'react-redux'
@@ -12,10 +12,20 @@ export interface PropsButton {
 
 export const ProductBottons = ({className,style,product,quantity}:PropsButton) =>{
 
-    const {counter, increaseBy} = useContext(ProductContext)
+    
+    const {counter, increaseBy,maxCount,isMaxCountReached } = useContext(ProductContext)
+   
+
     // const dispatch = useDispatch()
     
 
+    // const isMaxCount = useCallback(() => {
+    //   if(counter===maxCount) return true
+    //   else return false
+    // }, [counter,maxCount]);
+    
+    
+    
    return(
        <div 
        className = {`${styles.buttonsContainer} ${className}`}
@@ -23,7 +33,8 @@ export const ProductBottons = ({className,style,product,quantity}:PropsButton) =
 
        >
        <button 
-       className ={styles.buttonMinus}
+       className ={  styles.buttonMinus}
+     
        
        onClick= {() =>{
         // dispatch({type:'put',payload:product})
@@ -36,8 +47,10 @@ export const ProductBottons = ({className,style,product,quantity}:PropsButton) =
        className ={styles.countLabel}>
            {counter}
        </div>
+       
        <button 
-       className ={styles.buttonAdd}
+       className ={ ` ${ styles.buttonAdd } ${isMaxCountReached && styles.disabled}  ` }
+        disabled = {isMaxCountReached}
        onClick= {() => {
         //    dispatch({type:'add',payload:product})
            increaseBy(+1)}}

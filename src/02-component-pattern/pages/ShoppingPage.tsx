@@ -6,56 +6,80 @@ import '../styles/custom-styles.css'
 // import Basket from '../components/basket/basket';
 
 import { products } from '../data/products';
-import { useShopingCart } from '../hooks/useShopingCart';
+// import { useShopingCart } from '../hooks/useShopingCart';
 
 // import { useSelector } from 'react-redux';
 // import { State } from '../reducers/basketReducer';
 
 
-
+const product = products[0]
 
 
 export const ShoppingPage = () => {
     // const basket = useSelector((state:State) => state.basket)
     
-    const {shopingCart,onProductCountChange} = useShopingCart()
+    // const {shopingCart,onProductCountChange} = useShopingCart()
     
     return (
     <div >
             <h1>Shopping Page</h1>
             <hr />
-        <div style={{
+        {/* <div style={{
                 display:'flex',
                 flexDirection:'row',
                 flexWrap:'wrap'
-            }}>
-        { products.map(product => (
-
+            }}> */}
+    <div style={{display:'flex',flexDirection:'row'}}>
+        { products.map(product => ( 
+            <>
                 <ProductCard
                 key = {product.id} 
                 product = {product}
-                onChange = {onProductCountChange}
-                value = {shopingCart[product.id]?.count || 0}
-                className = 'bg-dark text-white'>
+                // onChange = {onProductCountChange}
+                // value = {shopingCart[product.id]?.count || 0}
+                initialValue = {{
+                    count:2,
+                    //maxCount:10
+                }}>
+                {
+                    ({reset,increaseBy,isMaxCountReached,count}) =>(
+                        <div className = 'bg-dark text-white'>
+                   
+                        < ProductImage className = 'custom-image'style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}/>
+                        < ProductTitle  className = ' text-bold'/>
+                        < ProductBottons className = 'custon-buttons'product = {product}/>
+                        {/* <button onClick={reset}>Reset</button> */}
+                        <button onClick={reset}>Reset</button>
+                        <button onClick={()=>increaseBy(-2)}>-2</button>
+                        {
+                           (!isMaxCountReached && <button onClick={()=>increaseBy(2)} >+2</button>)
+                        }
+                        <span>{count}</span>
+                        
 
-                    < ProductImage 
-                    className = 'custom-image'
-                    style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}
-                    />
-                    < ProductTitle  className = ' text-bold'/>
-                    < ProductBottons 
-                    className = 'custon-buttons'
-                    product = {product}
-                    /> 
+                        
+                       </div>
+                       )
+                }
+                
+
+                    
                 </ProductCard>
+                </>
+                
+        ))
+                        
+    
+                }
+                </div>
+           </div> ) }
 
-                ))
-        }
+
                 {/* < Basket  />  */}
-        </div>
+        {/* </div> */}
     
 
-        <div className="shoppping-cart">
+        {/* 
     
     
         { Object.entries(shopingCart).map(([key,product])=>(
@@ -72,9 +96,9 @@ export const ShoppingPage = () => {
             className = 'custom-image'
             style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}
             />
-                {/* < ProductTitle  className = ' text-bold'/> */}
+                {/* < ProductTitle  className = ' text-bold'/> 
 
-            {/* < ProductTitle  title={`${product.count}`}/> */}
+           
             < ProductBottons 
             className = 'custon-buttons' 
             style = {{display:'flex',justifyContent:'center'}}
@@ -87,9 +111,7 @@ export const ShoppingPage = () => {
         
         }
 
-        </div>
+        </div> */}
 
             
-    </div> )        
-    
-}
+ 
