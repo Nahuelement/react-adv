@@ -16,8 +16,6 @@ export const ProductContext = createContext({} as ProductContextProps);
 const {Provider} = ProductContext;
 
 
-
-
 export interface PropsCard {
     product:Product,
     // children?:React.ReactElement | React.ReactElement[],
@@ -30,12 +28,10 @@ export interface PropsCard {
 }
     
 
-
-
 export const ProductCard = ({children,product,className,style,onChange,value,initialValue} : PropsCard) => {
 
     const {counter ,increaseBy, maxCount,isMaxCountReached,reset,} = useProduct({onChange,product,value,initialValue})// PARA HACER TODOS LOS CAMBIOS EN EL CUSTOMHOOK
-    
+
     return (
 
         <Provider value = {{
@@ -44,13 +40,11 @@ export const ProductCard = ({children,product,className,style,onChange,value,ini
             product, 
             maxCount,
             isMaxCountReached
-           
-          
-            
         }} >
         <div 
-        className = {`${styles.productCard} ${className}`}
+        className = {`${styles.productCard} ${className} `}
         style = {style}
+        
         
         >
                 {children({
@@ -59,7 +53,6 @@ export const ProductCard = ({children,product,className,style,onChange,value,ini
                     product,
                     reset,
                     increaseBy
-
                 })}
             
 

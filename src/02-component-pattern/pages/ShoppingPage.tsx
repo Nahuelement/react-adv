@@ -1,6 +1,6 @@
 // import styles from '../styles/styles.module.css'
 import { ProductCard, ProductImage, ProductTitle ,ProductBottons} from '../components';
-import '../styles/custom-styles.css'
+
 // import { Component1 } from '../component_parts/component_1';
 
 // import Basket from '../components/basket/basket';
@@ -12,7 +12,7 @@ import { products } from '../data/products';
 // import { State } from '../reducers/basketReducer';
 
 
-const product = products[0]
+// const product = products[0]
 
 
 export const ShoppingPage = () => {
@@ -31,32 +31,24 @@ export const ShoppingPage = () => {
             }}> */}
     <div style={{display:'flex',flexDirection:'row'}}>
         { products.map(product => ( 
-            <>
+       
                 <ProductCard
                 key = {product.id} 
                 product = {product}
                 // onChange = {onProductCountChange}
                 // value = {shopingCart[product.id]?.count || 0}
                 initialValue = {{
-                    count:2,
-                    //maxCount:10
+                     count:0,
+                    maxCount:10
                 }}>
                 {
                     ({reset,increaseBy,isMaxCountReached,count}) =>(
-                        <div className = 'bg-dark text-white'>
+                        <div  >
                    
-                        < ProductImage className = 'custom-image'style={{boxShadow:'10px 10px 10px rgba(0,0,0,0.2)'}}/>
-                        < ProductTitle  className = ' text-bold'/>
-                        < ProductBottons className = 'custon-buttons'product = {product}/>
+                        < ProductImage/>
+                        < ProductTitle />
+                        < ProductBottons />
                         {/* <button onClick={reset}>Reset</button> */}
-                        <button onClick={reset}>Reset</button>
-                        <button onClick={()=>increaseBy(-2)}>-2</button>
-                        {
-                           (!isMaxCountReached && <button onClick={()=>increaseBy(2)} >+2</button>)
-                        }
-                        <span>{count}</span>
-                        
-
                         
                        </div>
                        )
@@ -65,7 +57,7 @@ export const ShoppingPage = () => {
 
                     
                 </ProductCard>
-                </>
+               
                 
         ))
                         

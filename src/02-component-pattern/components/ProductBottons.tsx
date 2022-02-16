@@ -6,7 +6,7 @@ import styles from '../styles/styles.module.css'
 export interface PropsButton {
     className?:string,
     style?:React.CSSProperties,
-    product:any,
+    product?:any,
     quantity?:number
 }
 
@@ -20,10 +20,10 @@ export const ProductBottons = ({className,style,product,quantity}:PropsButton) =
     
 
     // const isMaxCount = useCallback(() => {
-    //   if(counter===maxCount) return true
-    //   else return false
-    // }, [counter,maxCount]);
-    
+    //    if(counter===maxCount) return true
+    //    else return false
+    //  }, [counter,maxCount]);
+     
     
     
    return(

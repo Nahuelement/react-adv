@@ -32,6 +32,7 @@ export const Navigation = () =>{
                         {routes.map(({ to, name }) => (
                             <li key={to}>
                                 <NavLink
+                                    key={to}
                                     to={to}
                                     className={({ isActive }) => isActive ? 'nav-active' : ''}
                                 >{name}
@@ -49,7 +50,7 @@ export const Navigation = () =>{
                     ))}
                     <Route
                         path='/*'
-                        element={<Navigate to={routes[0].path}
+                        element={<Navigate to={routes[1].path}
                             replace />} />
                 </Routes>
 

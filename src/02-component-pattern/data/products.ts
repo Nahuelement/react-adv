@@ -18,7 +18,14 @@ const product2  = {
     img : './coffee-mug2.png'// 
 
 }
+const product3  = {
+    id:'3',
+    title:'NO COFFE',
+   
+
+}
 
 
 
-export const products:Product[] = [product1,product2]
+
+export const products:Product[] = [product1,product2, product3 ]

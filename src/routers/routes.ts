@@ -25,10 +25,10 @@ interface Route {
 
 export const routes:Route[] = [
     {
-        to:'/Shopping',
-        path: 'Shopping',
+        to:'/shopping',
+        path: 'shopping',
         Component: ShoppingPage,
-        name:'Shopping '
+        name:'shopping '
     },
     {
         to:'/user',
