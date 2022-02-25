@@ -1,0 +1,82 @@
+[
+    {
+        "type":"input",
+        "name":"firstName",
+        "placeholder":"Nahuel",
+        "label":"First Name",
+        "value":"",
+        "validations":[
+            {
+                "type":"requerid"
+            },
+            {
+                "type":"minLength",
+                "value":5
+            }
+          
+        ]
+    },
+    {
+        "type":"input",
+        "name":"lastName",
+        "placeholder":"",
+        "label":"Last Name",
+        "value":"",
+        "validations":[
+            {
+                "type":"requerid"
+            },
+            {
+                "type":"minLength",
+                "value":5
+            }
+        ]
+    },
+    {
+        "type":"email",
+        "name":"email",
+        "placeholder":"",
+        "label":"Email",
+        "value":"",
+        "validations":[
+            {
+                "type":"requerid"
+            },
+            {
+               "type":"email",
+               "value":"email valido requerido"
+             
+           }
+        ]
+    },
+    {
+        "type":"select",
+        "name":"favoriteGame",
+        "placeholder":"",
+        "label":"Favorite Game",
+        "value":"",
+        "option":[{
+                        "id":1,
+                        "label":"metal"
+
+                    },
+                    {
+                        "id":2,
+                        "label":"donkey"
+                    },
+                    {
+                        "id":3,
+                        "label":"mario"
+                    },
+                    {
+                        "id":4,
+                        "label":"sonic"
+                    }],
+         "validations":[
+                        {
+                            "type":"requerid"
+                        }
+                    ]
+
+    }
+]
